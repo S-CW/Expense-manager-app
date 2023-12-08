@@ -1,4 +1,4 @@
-package com.example.expensemanagerapp;
+package com.example.moneymanager;
 
 import androidx.appcompat.app.AppCompatActivity;
 

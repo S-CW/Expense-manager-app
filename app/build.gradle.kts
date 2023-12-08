@@ -3,11 +3,11 @@ plugins {
 }
 
 android {
-    namespace = "com.example.expensemanagerapp"
+    namespace = "com.example.moneymanager"
     compileSdk = 34
 
     defaultConfig {
-        applicationId = "com.example.expensemanagerapp"
+        applicationId = "com.example.moneymanager"
         minSdk = 24
         targetSdk = 34
         versionCode = 1

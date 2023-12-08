@@ -13,16 +13,16 @@
         android:theme="@style/Theme.ExpenseManagerApp"
         tools:targetApi="31">
         <activity
-            android:name=".ResetActivity"
+            android:name="com.example.moneymanager.ResetActivity"
             android:exported="false" />
         <activity
             android:name=".ResetActivitwyw"
             android:exported="false" />
         <activity
-            android:name=".RegistrationActivity"
+            android:name="com.example.moneymanager.RegistrationActivity"
             android:exported="false" />
         <activity
-            android:name=".MainActivity"
+            android:name="com.example.moneymanager.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
