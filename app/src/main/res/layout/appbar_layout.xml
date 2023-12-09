@@ -10,7 +10,7 @@
         android:layout_height="wrap_content"
         android:id="@+id/appbar">
 
-        <Toolbar
+        <androidx.appcompat.widget.Toolbar
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/my_toolbar"
@@ -18,7 +18,7 @@
             android:background="@color/toolbar_color"
             >
 
-        </Toolbar>
+        </androidx.appcompat.widget.Toolbar>
 
     </com.google.android.material.appbar.AppBarLayout>
 

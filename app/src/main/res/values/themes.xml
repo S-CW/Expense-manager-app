@@ -3,7 +3,22 @@
     <style name="Base.Theme.ExpenseManagerApp" parent="Theme.Material3.DayNight.NoActionBar">
         <!-- Customize your light theme here. -->
         <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+
+        <item name="drawerArrowStyle">@style/DrawerIconStyle</item>
+
     </style>
 
     <style name="Theme.ExpenseManagerApp" parent="Base.Theme.ExpenseManagerApp" />
+    
+    <style name="DrawerIconStyle" parent="Widget.AppCompat.DrawerArrowToggle">
+        <item name="color">@android:color/white</item>
+    </style>
+
+
 </resources>
