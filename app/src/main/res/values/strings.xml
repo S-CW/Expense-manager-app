@@ -3,5 +3,9 @@
 
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="dashboard">Dashboard</string>
+    <string name="expense">Expense</string>
+    <string name="income">Income</string>
 
 </resources>
