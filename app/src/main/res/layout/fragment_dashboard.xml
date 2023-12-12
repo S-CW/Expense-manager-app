@@ -133,13 +133,14 @@
                 android:visibility="invisible" />
 
             <com.google.android.material.floatingactionbutton.FloatingActionButton
+                app:shapeAppearanceOverlay="@style/fab_rounded"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/expense_ft_btn"
                 android:layout_gravity="bottom|end"
                 android:backgroundTint="#07BCA4"
                 android:elevation="6dp"
-                app:fabSize="mini"
+                app:fabCustomSize="40dp"
                 android:visibility="invisible"
                 app:pressedTranslationZ="12dp"
                 android:src="@drawable/expense"
@@ -171,18 +172,18 @@
                 />
 
             <com.google.android.material.floatingactionbutton.FloatingActionButton
+                app:shapeAppearanceOverlay="@style/fab_rounded"
+                android:id="@+id/income_ft_btn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/income_ft_btn"
                 android:layout_gravity="bottom|end"
                 android:backgroundTint="#1CE10A"
                 android:elevation="6dp"
-                app:fabSize="mini"
-                app:pressedTranslationZ="12dp"
-                android:visibility="invisible"
                 android:src="@drawable/income"
-                app:tint="@android:color/white"
-                />
+                android:visibility="invisible"
+                app:fabCustomSize="40dp"
+                app:pressedTranslationZ="12dp"
+                app:tint="@android:color/white" />
 
         </LinearLayout>
 
