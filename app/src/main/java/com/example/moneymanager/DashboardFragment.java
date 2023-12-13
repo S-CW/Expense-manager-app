@@ -3,6 +3,7 @@ package com.example.moneymanager;
 import android.os.Bundle;
 
 import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
 
 import android.text.TextUtils;
@@ -207,6 +208,9 @@ public class DashboardFragment extends Fragment {
         AlertDialog dialog = myDialog.create();
         dialog.setCancelable(false);
 
+        TextView headerTextView = myView.findViewById(R.id.custom_header);
+        headerTextView.setText("INCOME");
+
         EditText editAmount = myView.findViewById(R.id.amount_edit);
         EditText editType = myView.findViewById(R.id.type_edit);
         EditText editNote = myView.findViewById(R.id.note_edit);
@@ -271,6 +275,9 @@ public class DashboardFragment extends Fragment {
         myDialog.setView(myView);
         final AlertDialog dialog = myDialog.create();
         dialog.setCancelable(false);
+
+        TextView headerTextView = myView.findViewById(R.id.custom_header);
+        headerTextView.setText("EXPENSE");
 
         EditText amount = myView.findViewById(R.id.amount_edit);
         EditText type = myView.findViewById(R.id.type_edit);
