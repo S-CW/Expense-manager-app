@@ -3,14 +3,16 @@ package com.example.moneymanager;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 
 import com.example.moneymanager.Model.Data;
@@ -41,6 +43,21 @@ public class IncomeFragment extends Fragment {
 
 //    Textview
     private TextView incomeTotalSum;
+
+//    Update edit text
+    private EditText editAmount;
+    private EditText editType;
+    private EditText editNote;
+
+//    Button for update and delete
+    private Button btnUpdate;
+    private Button btnDelete;
+
+//    Data item value
+    private String type;
+    private String note;
+    private int amount;
+    private String post_key;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -103,6 +120,20 @@ public class IncomeFragment extends Fragment {
                 holder.setType(model.getType());
                 holder.setNote(model.getNote());
                 holder.setDate(model.getDate());
+
+//                Popup dialog for update and delete
+                holder.mView.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        post_key = getRef(position).getKey();
+
+                        type = model.getType();
+                        note = model.getNote();
+                        amount = model.getAmount();
+
+                        updateDataItem(model.getDate());
+                    }
+                });
             }
 
             @NonNull
@@ -151,6 +182,52 @@ public class IncomeFragment extends Fragment {
 
             mAmount.setText(strAmount);
         }
+    }
+
+    private void updateDataItem(String header) {
+        AlertDialog.Builder myDialog = new AlertDialog.Builder(getActivity());
+        LayoutInflater inflater = LayoutInflater.from(getActivity());
+
+        View myView = inflater.inflate(R.layout.update_data_item, null);
+        myDialog.setView(myView);
+
+        TextView headerTextView = myView.findViewById(R.id.custom_header);
+        headerTextView.setText(header);
+
+        editAmount = myView.findViewById(R.id.amount_edit);
+        editType = myView.findViewById(R.id.type_edit);
+        editNote = myView.findViewById(R.id.note_edit);
+
+//         Set data to edit text..
+        editType.setText(type);
+        editType.setSelection(type.length());
+
+        editNote.setText(note);
+        editNote.setSelection(note.length());
+
+        editAmount.setText(String.valueOf(amount));
+        editAmount.setSelection(String.valueOf(amount).length());
+
+        btnUpdate = myView.findViewById(R.id.btn_update);
+        btnDelete = myView.findViewById(R.id.btn_delete);
+
+        AlertDialog dialog = myDialog.create();
+
+        btnUpdate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+            }
+        });
+
+        btnDelete.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                dialog.dismiss();
+            }
+        });
+
+        dialog.show();
 
     }
 }

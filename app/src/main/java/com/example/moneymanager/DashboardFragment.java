@@ -37,10 +37,10 @@ public class DashboardFragment extends Fragment {
 
 //    Floating button
     private FloatingActionButton fab_main_btn;
-   private FloatingActionButton fab_income_btn;
-   private FloatingActionButton fab_expense_btn;
+    private FloatingActionButton fab_income_btn;
+    private FloatingActionButton fab_expense_btn;
 
-//   Floating button textview..
+//    Floating button textview..
     private TextView fab_income_txt;
     private TextView fab_expense_txt;
 

@@ -145,9 +145,9 @@
                     <Button
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="CANCEL"
+                        android:text="DELETE"
                         android:textAppearance="?android:textAppearanceMedium"
-                        android:id="@+id/btn_cancel"
+                        android:id="@+id/btn_delete"
                         android:textColor="@android:color/white"
                         android:backgroundTint="@color/nav_header"/>
 
@@ -163,9 +163,9 @@
                     <Button
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="SAVE"
+                        android:text="UPDATE"
                         android:textAppearance="?android:textAppearanceMedium"
-                        android:id="@+id/btn_save"
+                        android:id="@+id/btn_update"
                         android:textColor="@android:color/white"
                         android:backgroundTint="@color/nav_header"/>
 
