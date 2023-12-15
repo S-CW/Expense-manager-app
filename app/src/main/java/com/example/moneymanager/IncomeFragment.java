@@ -42,11 +42,6 @@ public class IncomeFragment extends Fragment {
 //    Textview
     private TextView incomeTotalSum;
 
-
-    public IncomeFragment() {
-        // Required empty public constructor
-    }
-
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -67,7 +62,6 @@ public class IncomeFragment extends Fragment {
         recyclerView = myView.findViewById(R.id.recycler_id_income);
 
         LinearLayoutManager layoutManager = new LinearLayoutManager(getActivity());
-
         layoutManager.setReverseLayout(true);
         layoutManager.setStackFromEnd(true);
         recyclerView.setHasFixedSize(true);
@@ -80,13 +74,11 @@ public class IncomeFragment extends Fragment {
 
                 for (DataSnapshot mySnapshot: snapshot.getChildren()) {
                     Data data = mySnapshot.getValue(Data.class);
-
                     totalAmount += data.getAmount();
-                    String strTotalAmount = String.valueOf(totalAmount);
-
-                    incomeTotalSum.setText(strTotalAmount);
                 }
 
+                    String strTotalAmount = String.valueOf(totalAmount);
+                    incomeTotalSum.setText(strTotalAmount);
             }
 
             @Override
