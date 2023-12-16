@@ -222,8 +222,7 @@ public class IncomeFragment extends Fragment {
                 type = editType.getText().toString().trim();
                 note = editNote.getText().toString().trim();
 
-                String strAmount = String.valueOf(amount);
-                strAmount = editAmount.getText().toString().trim();
+                String strAmount = editAmount.getText().toString().trim();
 
                 int myAmount = Integer.parseInt(strAmount);
                 String mDate = DateFormat.getDateInstance().format(new Date());
