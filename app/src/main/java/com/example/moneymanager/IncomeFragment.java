@@ -49,7 +49,7 @@ public class IncomeFragment extends Fragment {
 
 //    Update edit text
     private EditText editAmount;
-    private EditText editType;
+    private EditText editCategory;
     private EditText editNote;
 
 //    Button for update and delete
@@ -57,7 +57,7 @@ public class IncomeFragment extends Fragment {
     private Button btnDelete;
 
 //    Data item value
-    private String type;
+    private String category;
     private String note;
     private int amount;
     private String post_key;
@@ -120,7 +120,7 @@ public class IncomeFragment extends Fragment {
             @Override
             protected void onBindViewHolder(@NonNull MyViewHolder holder, int position, @NonNull Data model) {
                 holder.setAmount(model.getAmount());
-                holder.setType(model.getType());
+                holder.setCategory(model.getCategory());
                 holder.setNote(model.getNote());
                 holder.setDate(model.getDate());
 
@@ -130,7 +130,7 @@ public class IncomeFragment extends Fragment {
                     public void onClick(View view) {
                         post_key = getRef(position).getKey();
 
-                        type = model.getType();
+                        category = model.getCategory();
                         note = model.getNote();
                         amount = model.getAmount();
 
@@ -164,9 +164,9 @@ public class IncomeFragment extends Fragment {
             mView = itemView;
         }
 
-        public void setType(String type) {
-            TextView mType = mView.findViewById(R.id.type_txt_income);
-            mType.setText(type);
+        public void setCategory(String category) {
+            TextView mCategory = mView.findViewById(R.id.category_txt_income);
+            mCategory.setText(category);
         }
 
         public void setNote(String note) {
@@ -198,12 +198,12 @@ public class IncomeFragment extends Fragment {
         headerTextView.setText(header);
 
         editAmount = myView.findViewById(R.id.amount_edit);
-        editType = myView.findViewById(R.id.type_edit);
+        editCategory = myView.findViewById(R.id.category_edit);
         editNote = myView.findViewById(R.id.note_edit);
 
 //         Set data to edit text..
-        editType.setText(type);
-        editType.setSelection(type.length());
+        editCategory.setText(category);
+        editCategory.setSelection(category.length());
 
         editNote.setText(note);
         editNote.setSelection(note.length());
@@ -219,14 +219,14 @@ public class IncomeFragment extends Fragment {
         btnUpdate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                type = editType.getText().toString().trim();
+                category = editCategory.getText().toString().trim();
                 note = editNote.getText().toString().trim();
 
                 String strAmount = editAmount.getText().toString().trim();
 
                 int myAmount = Integer.parseInt(strAmount);
                 String mDate = DateFormat.getDateInstance().format(new Date());
-                Data data = new Data(myAmount, type, note, post_key, mDate);
+                Data data = new Data(myAmount, category, note, post_key, mDate);
 
                 mIncomeDatabase.child(post_key).setValue(data);
 

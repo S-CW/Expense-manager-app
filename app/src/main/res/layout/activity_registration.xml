@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:gravity="center"
-    android:background="@drawable/background_color"
+    android:background="@color/bg_color"
     tools:context=".RegistrationActivity">
 
     <ScrollView
@@ -27,37 +27,66 @@
                 android:textAppearance="?android:textAppearanceMedium"
                 android:textColor="@android:color/white" />
 
-            <EditText
-                android:id="@+id/email_reg"
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="10dp"
-                android:background="@drawable/edittext_background"
-                android:hint="Email:"
-                android:padding="15dp"
-                android:textColor="@android:color/white"
-                android:textColorHint="@android:color/white"
-                android:inputType="text"
-                />
+                android:orientation="horizontal"
+                android:layout_height="wrap_content">
 
-            <EditText
-                android:id="@+id/password_reg"
+                <TextView
+                    android:id="@+id/email_label"
+                    android:layout_width="80dp"
+                    android:layout_height="wrap_content"
+                    android:text="Email:"
+                    android:textSize="18sp"
+                    android:layout_margin="10dp"
+                    android:textColor="@android:color/white"/>
+
+                <EditText
+                    android:id="@+id/email_reg"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:hint="Enter your email"
+                    android:padding="15dp"
+                    android:textColor="@android:color/white"
+                    android:textColorHint="@android:color/darker_gray"
+                    android:inputType="text"
+                    />
+            </LinearLayout>
+
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="10dp"
-                android:background="@drawable/edittext_background"
-                android:hint="Password:"
-                android:padding="15dp"
-                android:textColor="@android:color/white"
-                android:textColorHint="@android:color/white"
-                android:inputType="textPassword" />
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/password_label"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:text="Password:"
+                    android:textColor="@android:color/white"
+                    android:textSize="18sp" />
+
+                <EditText
+                    android:id="@+id/password_reg"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:hint="Enter your password"
+                    android:padding="15dp"
+                    android:textColor="@android:color/white"
+                    android:textColorHint="@android:color/darker_gray"
+                    android:inputType="textPassword"
+                    />
+
+            </LinearLayout>
 
             <Button
                 android:id="@+id/btn_reg"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
-                android:backgroundTint="@android:color/black"
+                android:backgroundTint="@color/expense_color"
                 android:text="Registration"
                 android:textAppearance="?android:textAppearanceMedium" />
 

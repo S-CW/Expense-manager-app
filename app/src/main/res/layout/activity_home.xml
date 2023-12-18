@@ -12,8 +12,7 @@
 
     <include layout="@layout/appbar_layout"
         android:layout_height="match_parent"
-        android:layout_width="match_parent"
-        />
+        android:layout_width="match_parent"/>
 
     <com.google.android.material.navigation.NavigationView
         android:layout_width="wrap_content"
@@ -22,9 +21,10 @@
         android:id="@+id/naView"
         android:fitsSystemWindows="true"
         app:itemTextAppearance="?android:textAppearanceSmall"
-        app:itemIconTint="@color/toolbar_color"
+        app:itemIconTint="@android:color/white"
         app:menu="@menu/navmenu"
         app:headerLayout="@layout/nav_header"
-        app:itemTextColor="@color/nav_header"
-        />
+        app:itemTextColor="@android:color/white"
+        android:background="@android:color/black"/>
+
 </androidx.drawerlayout.widget.DrawerLayout>

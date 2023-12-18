@@ -4,14 +4,12 @@
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
 
-    <color name="toolbar_color">#FFAEF509</color>
-    <color name="nav_header">#FFEAA00C</color>
+    <color name="income_color">#398E21</color>
+    <color name="expense_color">#ED402D</color>
 
-    <color name="dashboard_color">#FF9B6309</color>
-    <color name="income_color">#FF240740</color>
-    <color name="expense_color">#FF6C042E</color>
-    <color name="date_color">#FF270648</color>
-    <color name="income_amount">#28A135</color>
-    <color name="expense_amount">#FFEC1D06</color>
+    <color name="text_box">#0A111B</color>
+    <color name="bg_color">#0E0E0E</color>
+    <color name="header_color">#251F1F</color>
+
 
 </resources>

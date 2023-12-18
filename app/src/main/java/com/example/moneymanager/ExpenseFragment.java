@@ -47,13 +47,13 @@ public class ExpenseFragment extends Fragment {
 
 //    Edit data item
     private EditText editAmount;
-    private EditText editType;
+    private EditText editCategory;
     private EditText editNote;
     private Button btnUpdate;
     private Button btnDelete;
 
 //    Data variable..
-    private String type;
+    private String category;
     private String note;
     private int amount;
     private String post_key;
@@ -116,7 +116,7 @@ public class ExpenseFragment extends Fragment {
             @Override
             protected void onBindViewHolder(@NonNull MyViewHolder holder, int position, @NonNull Data model) {
                 holder.setAmount(model.getAmount());
-                holder.setType(model.getType());
+                holder.setCategory(model.getCategory());
                 holder.setNote(model.getNote());
                 holder.setDate(model.getDate());
 
@@ -125,7 +125,7 @@ public class ExpenseFragment extends Fragment {
                     public void onClick(View view) {
                         post_key = getRef(position).getKey();
 
-                        type = model.getType();
+                        category = model.getCategory();
                         note = model.getNote();
                         amount = model.getAmount();
 
@@ -164,9 +164,9 @@ public class ExpenseFragment extends Fragment {
             mDate.setText(date);
         }
 
-        private void setType(String type) {
-            TextView mType = myView.findViewById(R.id.type_txt_expense);
-            mType.setText(type);
+        private void setCategory(String category) {
+            TextView mCategory = myView.findViewById(R.id.category_txt_expense);
+            mCategory.setText(category);
         }
 
         private void setNote(String note) {
@@ -193,12 +193,12 @@ public class ExpenseFragment extends Fragment {
         headerTextView.setText(header);
 
         editAmount = myView.findViewById(R.id.amount_edit);
-        editType = myView.findViewById(R.id.type_edit);
+        editCategory = myView.findViewById(R.id.category_edit);
         editNote = myView.findViewById(R.id.note_edit);
 
         //         Set data to edit text..
-        editType.setText(type);
-        editType.setSelection(type.length());
+        editCategory.setText(category);
+        editCategory.setSelection(category.length());
 
         editNote.setText(note);
         editNote.setSelection(note.length());
@@ -215,13 +215,13 @@ public class ExpenseFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 note = editNote.getText().toString().trim();
-                type = editType.getText().toString().trim();
+                category = editCategory.getText().toString().trim();
 
                 String strAmount = editAmount.getText().toString().trim();
 
                 int myAmount = Integer.parseInt(strAmount);
                 String mDate = DateFormat.getDateInstance().format(new Date());
-                Data data = new Data(myAmount, type, note, post_key, mDate);
+                Data data = new Data(myAmount, category, note, post_key, mDate);
 
                 mExpenseDatabase.child(post_key).setValue(data);
 

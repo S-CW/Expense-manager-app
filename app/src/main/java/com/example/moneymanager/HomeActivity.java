@@ -60,16 +60,10 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 if (item.getItemId() == R.id.dashboard) {
                     setFragment(dashboardFragment);
-                    bottomNavigationView.setItemBackgroundResource(R.color.dashboard_color);
-
                 } else if (item.getItemId() == R.id.income) {
                     setFragment(incomeFragment);
-                    bottomNavigationView.setItemBackgroundResource(R.color.income_color);
-
                 } else if (item.getItemId() == R.id.expense) {
                     setFragment(expenseFragment);
-                    bottomNavigationView.setItemBackgroundResource(R.color.expense_color);
-
                 }
 
                 return false;

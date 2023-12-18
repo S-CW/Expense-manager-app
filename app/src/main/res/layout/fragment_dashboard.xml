@@ -16,6 +16,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="@color/bg_color"
             android:orientation="vertical">
 
             <LinearLayout
@@ -34,7 +35,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textAppearance="?android:textAppearanceLarge"
-                        android:textColor="@android:color/black"
+                        android:textColor="@android:color/white"
                         android:text="Income"
                         />
 
@@ -51,7 +52,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textAppearance="?android:textAppearanceLarge"
-                        android:textColor="@android:color/holo_red_dark"
+                        android:textColor="@android:color/white"
                         android:text="Expense"
                         />
 
@@ -76,7 +77,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textAppearance="?android:textAppearanceLarge"
-                        android:textColor="@android:color/black"
+                        android:textColor="@color/income_color"
                         android:id="@+id/income_set_result"
                         android:text="00.00"
                         />
@@ -94,7 +95,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textAppearance="?android:textAppearanceLarge"
-                        android:textColor="@android:color/holo_red_dark"
+                        android:textColor="@color/expense_color"
                         android:id="@+id/expense_set_result"
                         android:text="00.00"
                         />
@@ -124,7 +125,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginRight="5dp"
-                android:background="@color/nav_header"
+                android:background="@color/text_box"
                 android:padding="5dp"
                 android:text="Expense"
                 android:textAppearance="?android:textAppearanceSmall"
@@ -137,7 +138,7 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/expense_ft_btn"
                 android:layout_gravity="bottom|end"
-                android:backgroundTint="#07BCA4"
+                android:backgroundTint="@color/expense_color"
                 android:elevation="6dp"
                 app:fabCustomSize="40dp"
                 android:visibility="invisible"
@@ -163,7 +164,7 @@
                 android:id="@+id/income_ft_text"
                 android:textColor="@android:color/white"
                 android:padding="5dp"
-                android:background="@color/nav_header"
+                android:background="@color/text_box"
                 android:layout_gravity="center"
                 android:layout_marginRight="5dp"
                 android:visibility="invisible"
@@ -176,7 +177,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="bottom|end"
-                android:backgroundTint="#1CE10A"
+                android:backgroundTint="@color/income_color"
                 android:elevation="6dp"
                 android:src="@drawable/income"
                 android:visibility="invisible"
@@ -194,7 +195,7 @@
             android:layout_gravity="bottom|end"
             android:layout_marginBottom="16dp"
             android:layout_marginRight="20dp"
-            android:backgroundTint="#6A1B9A"
+            android:backgroundTint="@color/colorPrimaryDark"
             app:fabSize="normal"
             android:src="@drawable/income"
             app:tint="@android:color/white"

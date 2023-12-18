@@ -237,7 +237,7 @@ public class DashboardFragment extends Fragment {
         headerTextView.setText("INCOME");
 
         EditText editAmount = myView.findViewById(R.id.amount_edit);
-        EditText editType = myView.findViewById(R.id.type_edit);
+        EditText editCategory = myView.findViewById(R.id.category_edit);
         EditText editNote = myView.findViewById(R.id.note_edit);
 
         Button btn_save = myView.findViewById(R.id.btn_save);
@@ -246,12 +246,12 @@ public class DashboardFragment extends Fragment {
         btn_save.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String type = editType.getText().toString().trim();
+                String category = editCategory.getText().toString().trim();
                 String amount = editAmount.getText().toString().trim();
                 String note = editNote.getText().toString().trim();
 
-                if (TextUtils.isEmpty(type)) {
-                    editType.setError("Required Field...");
+                if (TextUtils.isEmpty(category)) {
+                    editCategory.setError("Required Field...");
                     return;
                 }
 
@@ -270,7 +270,7 @@ public class DashboardFragment extends Fragment {
 //                Save data to firebasedatabase
                 String id = mIncomeDatabase.push().getKey();
                 String mDate = DateFormat.getDateInstance().format(new Date());
-                Data data = new Data(ourAmountInt, type, note, id, mDate);
+                Data data = new Data(ourAmountInt, category, note, id, mDate);
 
                 mIncomeDatabase.child(id).setValue(data);
 
@@ -305,7 +305,7 @@ public class DashboardFragment extends Fragment {
         headerTextView.setText("EXPENSE");
 
         EditText amount = myView.findViewById(R.id.amount_edit);
-        EditText type = myView.findViewById(R.id.type_edit);
+        EditText category = myView.findViewById(R.id.category_edit);
         EditText note = myView.findViewById(R.id.note_edit);
 
         Button btn_save = myView.findViewById(R.id.btn_save);
@@ -315,7 +315,7 @@ public class DashboardFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 String tmAmount = amount.getText().toString().trim();
-                String tmType = type.getText().toString().trim();
+                String tmCategory = category.getText().toString().trim();
                 String tmNote = note.getText().toString().trim();
 
                 if (TextUtils.isEmpty(tmAmount)) {
@@ -325,8 +325,8 @@ public class DashboardFragment extends Fragment {
 
                 int intAmount = Integer.parseInt(tmAmount);
 
-                if (TextUtils.isEmpty(tmType)) {
-                    type.setError("Required Field..");
+                if (TextUtils.isEmpty(tmCategory)) {
+                    category.setError("Required Field..");
                     return;
                 }
 
@@ -337,7 +337,7 @@ public class DashboardFragment extends Fragment {
 
                 String id = mExpenseDatabase.push().getKey();
                 String mDate = DateFormat.getDateInstance().format(new Date());
-                Data data = new Data(intAmount, tmType, tmNote, id, mDate);
+                Data data = new Data(intAmount, tmCategory, tmNote, id, mDate);
 
                 mExpenseDatabase.child(id).setValue(data);
 

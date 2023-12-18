@@ -2,7 +2,7 @@ package com.example.moneymanager.Model;
 
 public class Data {
     private int amount;
-    private String type;
+    private String category;
     private String note;
     private String id;
     private String date;
@@ -11,9 +11,9 @@ public class Data {
         // No-argument constructor code
     }
 
-    public Data(int amount, String type, String note, String id, String date) {
+    public Data(int amount, String category, String note, String id, String date) {
         this.amount = amount;
-        this.type = type;
+        this.category = category;
         this.note = note;
         this.id = id;
         this.date = date;
@@ -27,12 +27,12 @@ public class Data {
         this.amount = amount;
     }
 
-    public String getType() {
-        return type;
+    public String getCategory() {
+        return category;
     }
 
-    public void setType(String type) {
-        this.type = type;
+    public void setCategory(String category) {
+        this.category = category;
     }
 
     public String getNote() {
