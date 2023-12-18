@@ -30,6 +30,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.text.DateFormat;
+import java.text.DecimalFormat;
 import java.util.Date;
 
 /**
@@ -62,6 +63,9 @@ public class DashboardFragment extends Fragment {
     private FirebaseAuth mAuth;
     private DatabaseReference mIncomeDatabase;
     private DatabaseReference mExpenseDatabase;
+
+//    Data variable
+    private static DecimalFormat df = new DecimalFormat("0.00");
 
 
     @Override
@@ -135,7 +139,7 @@ public class DashboardFragment extends Fragment {
         mIncomeDatabase.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                int totalSum = 0;
+                float totalSum = 0.00f;
                 for (DataSnapshot mySnapshot:snapshot.getChildren()) {
                     Data data = mySnapshot.getValue(Data.class);
 
@@ -143,8 +147,8 @@ public class DashboardFragment extends Fragment {
 
                 }
 
-                String stResult = String.valueOf(totalSum);
-                totalIncomResult.setText(stResult + ".00");
+                String stResult = df.format(totalSum);
+                totalIncomResult.setText("$ " + stResult);
             }
 
             @Override
@@ -156,15 +160,16 @@ public class DashboardFragment extends Fragment {
         mExpenseDatabase.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                int totalSum = 0;
+                float totalSum = 0;
                 for (DataSnapshot mySnapshot: snapshot.getChildren()) {
                     Data data = mySnapshot.getValue(Data.class);
 
                     totalSum += data.getAmount();
                 }
 
-                String stResult = String.valueOf(totalSum);
-                totalExpenseResult.setText(stResult + ".00");
+
+                String stResult = df.format(totalSum);
+                totalExpenseResult.setText("$ " + stResult);
             }
 
             @Override
@@ -250,17 +255,18 @@ public class DashboardFragment extends Fragment {
                 String amount = editAmount.getText().toString().trim();
                 String note = editNote.getText().toString().trim();
 
-                if (TextUtils.isEmpty(category)) {
-                    editCategory.setError("Required Field...");
-                    return;
-                }
-
                 if (TextUtils.isEmpty(amount)) {
                     editAmount.setError("Required Field...");
                     return;
                 }
 
-                int ourAmountInt = Integer.parseInt(amount);
+                float floatAmount = Float.parseFloat(amount);
+
+                if (TextUtils.isEmpty(category)) {
+                    editCategory.setError("Required Field...");
+                    return;
+                }
+
 
                 if (TextUtils.isEmpty(note)) {
                     editNote.setError("Required Field...");
@@ -270,7 +276,7 @@ public class DashboardFragment extends Fragment {
 //                Save data to firebasedatabase
                 String id = mIncomeDatabase.push().getKey();
                 String mDate = DateFormat.getDateInstance().format(new Date());
-                Data data = new Data(ourAmountInt, category, note, id, mDate);
+                Data data = new Data(floatAmount, category, note, id, mDate);
 
                 mIncomeDatabase.child(id).setValue(data);
 
@@ -323,7 +329,7 @@ public class DashboardFragment extends Fragment {
                     return;
                 }
 
-                int intAmount = Integer.parseInt(tmAmount);
+                float floatAmount = Float.parseFloat(tmAmount);
 
                 if (TextUtils.isEmpty(tmCategory)) {
                     category.setError("Required Field..");
@@ -337,7 +343,7 @@ public class DashboardFragment extends Fragment {
 
                 String id = mExpenseDatabase.push().getKey();
                 String mDate = DateFormat.getDateInstance().format(new Date());
-                Data data = new Data(intAmount, tmCategory, tmNote, id, mDate);
+                Data data = new Data(floatAmount, tmCategory, tmNote, id, mDate);
 
                 mExpenseDatabase.child(id).setValue(data);
 

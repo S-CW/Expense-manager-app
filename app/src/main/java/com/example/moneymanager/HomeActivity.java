@@ -36,6 +36,7 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
         setSupportActionBar(toolbar);
 
         bottomNavigationView = findViewById(R.id.bottomNavigationbar);
+        bottomNavigationView.setItemIconTintList(null);
         frameLayout = findViewById(R.id.main_frame);
 
         DrawerLayout drawerLayout = findViewById(R.id.drawer_layout);
@@ -47,15 +48,15 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
         toggle.syncState();
 
         NavigationView navigationView = findViewById(R.id.naView);
+        navigationView.setItemIconTintList(null);
         navigationView.setNavigationItemSelectedListener(this);
 
         dashboardFragment = new DashboardFragment();
         incomeFragment = new IncomeFragment();
         expenseFragment = new ExpenseFragment();
 
-
         setFragment(dashboardFragment);
-        bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+        bottomNavigationView.setOnItemSelectedListener(new NavigationBarView.OnItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 if (item.getItemId() == R.id.dashboard) {
@@ -69,7 +70,6 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
                 return false;
             }
         });
-
     }
 
     private void setFragment(Fragment fragment) {

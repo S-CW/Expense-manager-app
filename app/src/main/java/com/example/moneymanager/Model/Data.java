@@ -1,7 +1,7 @@
 package com.example.moneymanager.Model;
 
 public class Data {
-    private int amount;
+    private float amount;
     private String category;
     private String note;
     private String id;
@@ -11,7 +11,7 @@ public class Data {
         // No-argument constructor code
     }
 
-    public Data(int amount, String category, String note, String id, String date) {
+    public Data(float amount, String category, String note, String id, String date) {
         this.amount = amount;
         this.category = category;
         this.note = note;
@@ -19,11 +19,11 @@ public class Data {
         this.date = date;
     }
 
-    public int getAmount() {
+    public float getAmount() {
         return amount;
     }
 
-    public void setAmount(int amount) {
+    public void setAmount(float amount) {
         this.amount = amount;
     }
 

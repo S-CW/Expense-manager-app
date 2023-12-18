@@ -57,6 +57,7 @@
                     <EditText
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:inputType="numberDecimal"
                         android:textColor="@android:color/white"
                         android:id="@+id/amount_edit"/>
 
@@ -150,15 +151,15 @@
 
                     <com.google.android.material.button.MaterialButton
                         android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
                         android:text="CANCEL"
                         android:textAppearance="?android:textAppearanceMedium"
                         android:id="@+id/btn_cancel"
-                        android:layout_height="wrap_content"
+                        android:textColor="@android:color/white"
                         app:backgroundTint="@android:color/transparent"
                         app:strokeColor="@android:color/white"
                         app:strokeWidth="1dp"
                         />
-
 
                 </RelativeLayout>
 

@@ -16,13 +16,12 @@
             android:layout_height="wrap_content"
             android:id="@+id/my_toolbar"
             android:background="@color/text_box"
-            app:titleTextColor="@android:color/white"
-            >
+            app:titleTextColor="@android:color/white">
 
         </androidx.appcompat.widget.Toolbar>
 
     </com.google.android.material.appbar.AppBarLayout>
 
-    <include layout="@layout/content_main"/>
+    <include layout="@layout/content_main" />
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

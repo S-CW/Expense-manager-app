@@ -12,6 +12,8 @@
 
         <item name="drawerArrowStyle">@style/DrawerIconStyle</item>
 
+        <item name="colorControlHighlight">@android:color/transparent</item>
+
     </style>
 
     <style name="Theme.MoneyManager" parent="Base.Theme.MoneyManager" />

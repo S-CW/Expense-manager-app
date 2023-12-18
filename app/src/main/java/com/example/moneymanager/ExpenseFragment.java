@@ -27,6 +27,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.text.DateFormat;
+import java.text.DecimalFormat;
 import java.util.Date;
 
 /**
@@ -55,8 +56,9 @@ public class ExpenseFragment extends Fragment {
 //    Data variable..
     private String category;
     private String note;
-    private int amount;
+    private float amount;
     private String post_key;
+    private static DecimalFormat df = new DecimalFormat("0.00");
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -86,15 +88,15 @@ public class ExpenseFragment extends Fragment {
         mExpenseDatabase.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                int totalAmount = 0;
+                float totalAmount = 0;
 
                 for (DataSnapshot mySnapshot: snapshot.getChildren()) {
                     Data data = mySnapshot.getValue(Data.class);
                     totalAmount += data.getAmount();
                 }
 
-                String strTotalAmount = String.valueOf(totalAmount);
-                expenseTotalSum.setText(strTotalAmount);
+                String strTotalAmount = df.format(totalAmount);
+                expenseTotalSum.setText("$ " + strTotalAmount);
             }
 
             @Override
@@ -174,11 +176,11 @@ public class ExpenseFragment extends Fragment {
             mNote.setText(note);
         }
 
-        private void setAmount(int amount) {
+        private void setAmount(float amount) {
             TextView mAmount = myView.findViewById(R.id.amount_txt_expense);
-            String strAmount = String.valueOf(amount);
+            String strAmount = df.format(amount);
 
-            mAmount.setText(strAmount);
+            mAmount.setText("$ " + strAmount);
         }
     }
 
@@ -219,7 +221,7 @@ public class ExpenseFragment extends Fragment {
 
                 String strAmount = editAmount.getText().toString().trim();
 
-                int myAmount = Integer.parseInt(strAmount);
+                float myAmount = Float.parseFloat(strAmount);
                 String mDate = DateFormat.getDateInstance().format(new Date());
                 Data data = new Data(myAmount, category, note, post_key, mDate);
 
