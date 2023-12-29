@@ -35,11 +35,6 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         mAuth = FirebaseAuth.getInstance();
-
-        if (mAuth.getCurrentUser() != null) {
-            startActivity(new Intent(getApplicationContext(), HomeActivity.class));
-        }
-
         mDialog = new ProgressDialog(this);
 
         loginDetails();
@@ -79,6 +74,7 @@ public class MainActivity extends AppCompatActivity {
 
                             startActivity(new Intent(getApplicationContext(), HomeActivity.class));
                             Toast.makeText(getApplicationContext(), "Login Successful..", Toast.LENGTH_SHORT).show();
+                            finish();
                         } else {
                             mDialog.dismiss();
                             Toast.makeText(getApplicationContext(), "Login Failed..", Toast.LENGTH_SHORT).show();

@@ -8,6 +8,8 @@ import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
+
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.widget.FrameLayout;
@@ -15,6 +17,7 @@ import android.widget.FrameLayout;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationBarView;
 import com.google.android.material.navigation.NavigationView;
+import com.google.firebase.auth.FirebaseAuth;
 
 public class HomeActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
@@ -25,6 +28,7 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
     private DashboardFragment dashboardFragment;
     private IncomeFragment incomeFragment;
     private ExpenseFragment expenseFragment;
+    private FirebaseAuth mAuth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,6 +38,8 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
         Toolbar toolbar = findViewById(R.id.my_toolbar);
         toolbar.setTitle("Money Manager");
         setSupportActionBar(toolbar);
+
+        mAuth = FirebaseAuth.getInstance();
 
         bottomNavigationView = findViewById(R.id.bottomNavigationbar);
         bottomNavigationView.setItemIconTintList(null);
@@ -98,6 +104,11 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
             fragment = new IncomeFragment();
         } else if (itemId == R.id.expense) {
             fragment = new ExpenseFragment();
+        } else if (itemId == R.id.logout) {
+            mAuth.signOut();
+            startActivity(new Intent(getApplicationContext(), MainActivity.class));
+            finish();
+
         }
 
         if (fragment != null) {
