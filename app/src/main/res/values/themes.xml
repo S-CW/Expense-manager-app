@@ -18,11 +18,10 @@
 
     <style name="Theme.MoneyManager" parent="Base.Theme.MoneyManager" />
 
-    <style name="AppTheme.NoActionBar" parent="Base.Theme.MoneyManager">
-        <item name="windowNoTitle">true</item>
-        <item name="windowActionBar">false</item>
-        <item name="android:windowFullscreen">true</item>
-        <item name="android:windowContentOverlay">@null</item>
+    <style name="Theme.Splash" parent="Theme.SplashScreen">
+        <item name="windowSplashScreenBackground">@color/bg_color</item>
+        <item name="windowSplashScreenAnimatedIcon">@drawable/ic_launcher_logo</item>
+        <item name="postSplashScreenTheme">@style/Base.Theme.MoneyManager</item>
     </style>
     
     <style name="DrawerIconStyle" parent="Widget.AppCompat.DrawerArrowToggle">
