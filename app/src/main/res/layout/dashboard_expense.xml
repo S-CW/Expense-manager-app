@@ -5,6 +5,7 @@
     app:cardElevation="10dp"
     android:elevation="5dp"
     android:layout_margin="10dp"
+    app:cardBackgroundColor="@color/text_box"
     android:layout_height="wrap_content">
 
     <LinearLayout
@@ -17,6 +18,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Category"
+            android:textColor="@android:color/darker_gray"
             android:textAppearance="?android:textAppearanceLarge"
             android:gravity="center"
             android:id="@+id/category_expense_ds"
@@ -38,6 +40,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="29 December 2023"
+            android:textColor="@android:color/darker_gray"
             android:textAppearance="?android:textAppearanceMedium"
             android:gravity="center"
             android:padding="5dp"
