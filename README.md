@@ -7,6 +7,6 @@ Build for android phone as of the time of making this project with Android Studi
 Demonstration of the application is available at [Youtube](https://youtu.be/neivQKBlkhM)
 
 ## Screenshot
-![splash_and_login_page](screenshots\splash_and_login_page.jpg)
-![dashboard](screenshots\dashboard_page.jpg)
-![income_and_expense](screenshots\income_and_expense_page.jpg)
+![splash_and_login_page](screenshots/splash_and_login_page.jpg)
+![dashboard](screenshots/dashboard_page.jpg)
+![income_and_expense](screenshots/income_and_expense_page.jpg)
