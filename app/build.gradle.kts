@@ -55,4 +55,11 @@ dependencies {
     // Add the dependencies for any other desired Firebase products
     // https://firebase.google.com/docs/android/setup#available-libraries
 
+    implementation("io.reactivex:rxandroid:1.1.0") // RxAndroid
+    implementation("io.reactivex:rxjava:1.1.0") // 推荐同时加载RxJava
+
+    implementation("com.squareup.retrofit:retrofit:2.0.0-beta2") // Retrofit网络处理
+    implementation("com.squareup.retrofit:adapter-rxjava:2.0.0-beta2") // Retrofit的rx解析库
+    implementation("com.squareup.retrofit:converter-gson:2.0.0-beta2") // Retrofit的gson库
+
 }
