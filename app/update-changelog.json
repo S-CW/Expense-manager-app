@@ -2,7 +2,5 @@
   "latestVersion": "v1.1",
   "latestVersionCode": 2,
   "apkUrl": "https://github.com/S-CW/Money-manager-app/tree/development/app/moneymanager_v1.1.apk",
-  "releaseNotes": [
-    "First release"
-  ]
+  "releaseNotes": "First release"
 }
