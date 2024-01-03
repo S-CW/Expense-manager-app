@@ -101,8 +101,8 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
         checkUpdate(BuildConfig.VERSION_CODE, new CheckCallBack() {
             @Override
             public void onSuccess(UpdateAppInfo updateInfo) {
-                String downUrl= updateInfo.getApkUrl();//apk下载地址
-                String updateMessage = updateInfo.getReleaseNotes();//apk更新详情
+                String downUrl= updateInfo.getApkUrl();
+                String updateMessage = updateInfo.getReleaseNotes();
                 String appName = updateInfo.getLatestVersion();
 
                 showUpdateDialog(HomeActivity.this, appName, downUrl, updateMessage);
