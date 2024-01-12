@@ -5,7 +5,7 @@ import retrofit.Retrofit;
 import retrofit.RxJavaCallAdapterFactory;
 
 public class ServiceFactory {
-    private static final String BASEURL = "https://raw.githubusercontent.com/S-CW/";
+    private static final String BASEURL = "https://raw.githubusercontent.com/";
 
     public static <T> T createServiceFrom(final Class<T> serviceClass) {
         Retrofit adapter = new Retrofit.Builder()
@@ -14,5 +14,6 @@ public class ServiceFactory {
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
         return adapter.create(serviceClass);
+
     }
 }

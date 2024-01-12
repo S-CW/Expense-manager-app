@@ -30,7 +30,6 @@ import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 
 import rx.Subscriber;
-import rx.android.BuildConfig;
 import rx.android.schedulers.AndroidSchedulers;
 import rx.schedulers.Schedulers;
 
@@ -110,6 +109,7 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
             @Override
             public void onError() {
 //                Handle callback error here...
+                Log.d("CheckUpdate", "something wrong here");
             }
         });
     }
@@ -180,7 +180,7 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
                     }
                     @Override
                     public void onError(Throwable e) {
-                        Log.d("CheckUpdate", e.toString());
+                        Log.e("CheckUpdate", e.toString());
                     }
                     @Override
                     public void onNext(UpdateAppInfo updateAppInfo) {

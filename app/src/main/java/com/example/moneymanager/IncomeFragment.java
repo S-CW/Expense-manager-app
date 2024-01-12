@@ -35,7 +35,7 @@ import java.util.Date;
  * Use the {@link IncomeFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class IncomeFragment extends Fragment {
+public class  IncomeFragment extends Fragment {
 
 //    Firebase database
     private FirebaseAuth mAuth;
