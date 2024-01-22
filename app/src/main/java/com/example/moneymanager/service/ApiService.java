@@ -6,6 +6,6 @@ import retrofit.http.GET;
 import rx.Observable;
 
 public interface ApiService {
-    @GET("S-CW/Money-manager-app/development/app/update-changelog.json")
+    @GET("api/get-version-info")
     Observable<UpdateAppInfo> getUpdateInfo();
 }

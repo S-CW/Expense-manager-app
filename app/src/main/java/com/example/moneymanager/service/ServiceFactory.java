@@ -5,7 +5,7 @@ import retrofit.Retrofit;
 import retrofit.RxJavaCallAdapterFactory;
 
 public class ServiceFactory {
-    private static final String BASEURL = "https://raw.githubusercontent.com/";
+    private static final String BASEURL = "https://jeffrey-dev.monsterwebdev.com/";
 
     public static <T> T createServiceFrom(final Class<T> serviceClass) {
         Retrofit adapter = new Retrofit.Builder()

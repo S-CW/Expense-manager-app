@@ -1,5 +1,6 @@
 package com.example.moneymanager.service;
 
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
@@ -30,39 +31,49 @@ public class AppInnerDownLoader {
      */
     @SuppressWarnings("unused")
     public static void downLoadApk(final Context mContext, final String downURL, final String appName) {
-        AlertDialog.Builder builder = new AlertDialog.Builder(mContext);
-        LayoutInflater inflater = LayoutInflater.from(mContext);
-        View view = inflater.inflate(R.layout.progress_dialog_layout, null);
-
-        TextView progressTitle = view.findViewById(R.id.dialog_title);
-        TextView progressMessage = view.findViewById(R.id.dialog_message);
-        TextView progressPercentage = view.findViewById(R.id.progress_percentage);
-        TextView progressFileSize = view.findViewById(R.id.progress_file_size);
-        ProgressBar progressBar = view.findViewById(R.id.progress_bar);
+//        AlertDialog.Builder builder = new AlertDialog.Builder(mContext);
+//        LayoutInflater inflater = LayoutInflater.from(mContext);
+//        View view = inflater.inflate(R.layout.progress_dialog_layout, null);
+//
+//        TextView progressTitle = view.findViewById(R.id.dialog_title);
+//        TextView progressMessage = view.findViewById(R.id.dialog_message);
+//        TextView progressPercentage = view.findViewById(R.id.progress_percentage);
+//        TextView progressFileSize = view.findViewById(R.id.progress_file_size);
+//        ProgressBar progressBar = view.findViewById(R.id.progress_bar);
 
         String title = "Version Upgrade";
         String message = "Downloading installation package, please wait";
-        progressTitle.setText(title);
-        progressMessage.setText(message);
+//        progressTitle.setText(title);
+//        progressMessage.setText(message);
 
-        builder.setView(view)
-                .setCancelable(false);
-        AlertDialog mDialog = builder.create();
-        mDialog.show();
+//        builder.setView(view)
+//                .setCancelable(false);
+//        AlertDialog mDialog = builder.create();
+//        mDialog.show();
+
+        final ProgressDialog pd;
+        pd = new ProgressDialog(mContext);
+        pd.setCancelable(false);
+        pd.setProgressStyle(ProgressDialog.STYLE_HORIZONTAL);
+        pd.setTitle(title);
+        pd.setMessage(message);
+        pd.show();
+
 
         new Thread() {
             @Override
             public void run() {
                 try {
-                    File file = downloadFile(downURL,appName, progressBar, progressPercentage, progressFileSize, mContext);
-                    sleep(3000);
+                    File file = downloadFile(downURL,appName, mContext, pd);
+                    Thread.sleep(3000);
 
                     installApk(mContext, file);
-                    mDialog.dismiss();
+//                    mDialog.dismiss();
+                    pd.dismiss();
                 } catch (Exception e) {
                     Log.e(TAG, String.valueOf(e));
-                    mDialog.dismiss();
-
+//                    mDialog.dismiss();
+                    pd.dismiss();
                 }
             }
         }.start();
@@ -73,12 +84,12 @@ public class AppInnerDownLoader {
      *
      * @param path
      *            Download path
-     * @param progressBar
+     * //@param progressBar
      *            progress bar
      * @return
      * @throws Exception
      */
-    private static File downloadFile(String path, String appName , ProgressBar progressBar, TextView progressPercentage, TextView progressFileSize, Context context) throws Exception {
+    private static File downloadFile(String path, String appName, Context context, ProgressDialog pd) throws Exception {
         // If they are equal, it means that the current sdcard is mounted on the phone and is available.
         if (Environment.MEDIA_MOUNTED.equals(Environment.getExternalStorageState())) {
             URL url = new URL(path);
@@ -87,7 +98,8 @@ public class AppInnerDownLoader {
 
             // Get file size
             int lengthOfFile = conn.getContentLength();
-            progressBar.setMax(lengthOfFile);
+//            progressBar.setMax(lengthOfFile);
+            pd.setMax(conn.getContentLength());
             InputStream is = conn.getInputStream();
 
             //file:///storage/emulated/0/Android/data/your-package/files/Download/
@@ -100,17 +112,17 @@ public class AppInnerDownLoader {
             byte[] buffer = new byte[1024];
             int len;
             int total = 0;
-            int percentage;
 
             while ((len = bis.read(buffer)) != -1) {
                 fos.write(buffer, 0, len);
                 total += len;
 
-
                 // Get the current download volume
-                progressBar.setProgress(total);
-                progressPercentage.setText(String.valueOf((int) total * 100 / lengthOfFile) + "%");
-                progressFileSize.setText(String.valueOf(total) + "/" + String.valueOf(lengthOfFile));
+//                progressBar.setProgress(total);
+//                progressPercentage.setText(String.valueOf((int) total * 100 / lengthOfFile) + "%");
+//                progressFileSize.setText(String.valueOf(total) + "/" + String.valueOf(lengthOfFile));
+
+                pd.setProgress(total);
             }
 
 
