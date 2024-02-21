@@ -77,9 +77,9 @@ public class  IncomeFragment extends Fragment {
 
         mAuth = FirebaseAuth.getInstance();
         FirebaseUser mUser = mAuth.getCurrentUser();
-        String uid = mUser.getUid();
+        String userEmail = mUser.getEmail().replace(".", ",");
 
-        mIncomeDatabase = FirebaseDatabase.getInstance().getReference().child("IncomeDatabase").child(uid);
+        mIncomeDatabase = FirebaseDatabase.getInstance().getReference().child("IncomeDatabase").child(userEmail);
         incomeTotalSum = myView.findViewById(R.id.income_txt_result);
         recyclerView = myView.findViewById(R.id.recycler_id_income);
 

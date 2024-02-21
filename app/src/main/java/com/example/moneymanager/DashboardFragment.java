@@ -91,10 +91,10 @@ public class DashboardFragment extends Fragment {
 
         mAuth = FirebaseAuth.getInstance();
         FirebaseUser mUser = mAuth.getCurrentUser();
-        String uid = mUser.getUid();
+        String userEmail = mUser.getEmail().replace(".", ",");
 
-        mIncomeDatabase = FirebaseDatabase.getInstance().getReference().child("IncomeDatabase").child(uid);
-        mExpenseDatabase = FirebaseDatabase.getInstance().getReference().child("ExpenseDatabase").child(uid);
+        mIncomeDatabase = FirebaseDatabase.getInstance().getReference().child("IncomeDatabase").child(userEmail);
+        mExpenseDatabase = FirebaseDatabase.getInstance().getReference().child("ExpenseDatabase").child(userEmail);
 
         mIncomeDatabase.keepSynced(true);
         mExpenseDatabase.keepSynced(true);
@@ -203,8 +203,8 @@ public class DashboardFragment extends Fragment {
         mRecyclerIncome.setLayoutManager(layoutManagerIncome);
 
         LinearLayoutManager layoutManagerExpense = new LinearLayoutManager(getActivity(), LinearLayoutManager.HORIZONTAL, false);
+        layoutManagerExpense.setStackFromEnd(true);
         layoutManagerExpense.setReverseLayout(true);
-        layoutManagerIncome.setStackFromEnd(true);
         mRecyclerExpense.setHasFixedSize(true);
         mRecyclerExpense.setLayoutManager(layoutManagerExpense);
 
